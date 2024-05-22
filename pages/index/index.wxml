@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<van-sticky>
+<view class="search-container">
+  <view class="search">
+    <view class="search-title" src="../../images/actLogo/ytlogo.png"
+     >
+     童乐汇
+      <!-- {{mallName}} -->
+    </view>
+    <input placeholder-class="search-placeholder"
+       type="text" placeholder="输入关键词搜索" disabled
+      value="{{name}}" bindinput="bindinput" bindtap="goSearch"></input>
+  </view>
+</view>
+</van-sticky>
+<!-- 轮播 -->
+<view class="swiper-container">
+    <swiper circular autoplay indicator-dots indicator-active-color="#fff" class="swiper1">
+        <swiper-item wx:for="{{bannerListData}}">
+            <image src="{{item.picUrl}}" mode="aspectFill"/>
+        </swiper-item>
+    </swiper>
+    <!-- 购买记录轮播 -->
+    <view class="goodsDynamic">
+        <swiper circular autoplay vertical class="swiper2">
+            <swiper-item wx:for="{{goodsDynamicData}}" wx:key="{{item.goodsId}}">
+                <view class="goodsDynamic-item">
+                    <image src="{{item.avatarUrl}}" mode="aspectFill"/>
+                    <text>{{item.goodsName}}</text>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+
+<!--金刚区 -->
+<view class="category-container">
+    <view class="category-box">
+        <view class="category-list" wx:for="{{categoryData}}" wx:key="{{item.id}}">
+            <view class="category-column">
+                <image src="{{item.icon}}" mode="aspectFill" class="category-imgbox" />
+                <view class="category-title">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 咨询 -->
+<view class="notice-box" wx:if="{{noticeData}}">
+  <swiper class="notice_swiper" vertical autoplay circular interval="8000">
+    <swiper-item wx:for="{{noticeData.dataList}}" wx:key="id">
+      <van-notice-bar wx:if="{{noticeData}}" mode="link" text="{{ item.title }}" background="#FFFFFF"
+        data-id="{{ item.id }}" speed="30" bind:click="goNotice">
+        <image slot="left-icon" class="notice-icon" src="../../images/home/notice.png"></image>
+      </van-notice-bar>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 秒杀 -->
