@@ -1,2 +1,23 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="main">
+  <scroll-view class="category-container" scroll-y="true">
+    <van-sidebar active-key="{{ activeCategory }}">
+      <van-sidebar-item title="{{item.name}}" wx:for="{{categoryList}}" wx:key="id" bind:tap="handleChange" data-idx="{{index}}" />
+    </van-sidebar>
+  </scroll-view>
+  <scroll-view class="goods-container" scroll-y="true">
+    <van-empty description="没有商品" wx:if="{{!currentGoodsList.length}}" />
+    <van-card
+      wx:for="{{currentGoodsList}}" wx:key="id"
+      price="{{item.minPrice}}"
+      title="{{item.name}}"
+      thumb="{{item.pic}}"
+    >
+      <view class="goods-btn" slot="footer">
+        <van-icon wx:if="{{ item.propertyIds || item.hasAddition }}" name="add" color="#e64340" size="48rpx" data-id="{{item.id}}" bind:click="addShopCar" />
+        <van-icon wx:else name="shopping-cart-o" color="#e64340" size="48rpx" data-id="{{item.id}}" bind:click="addShopCar" />
+      </view>
+    </van-card>
+  </scroll-view>
+</view>
+<goods-pop skuCurGoodsBaseInfo="{{ skuCurGoods }}" />

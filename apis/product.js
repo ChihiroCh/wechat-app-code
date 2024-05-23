@@ -16,3 +16,14 @@ export function notice ({pageSize}) {
     return request.get(`/notice?pageSize=${pageSize}`)
 }
 
+export function goodlist ({ page, pageSize, categoryId }) {
+  return request.get(`/goodlist?page=${page}&pageSize=${pageSize}&categoryId=${categoryId}`)
+}
+
+export function getGoodDetail(id) {
+  return request.get(`/getGoodDetail?id=${id}`)
+}
+
+export function addGoods (data) {
+    return request.post('/shopping-cart/addGoods', data)
+}
