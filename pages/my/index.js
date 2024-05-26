@@ -11,21 +11,23 @@ Page({
   },
   async updateUserInfo() {
 //    const res = await checkAuth('scope.userInfo')
-    
-    wx.getUserProfile({
-        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-        success: (res) => {
-            encrypt(res).then(data => {
-                console.log('res',data)
-            })
-        }
-    })
+    const islogin = await Auth.checkLoginStatus()
+    if(!islogin){
+        Auth.authorize()
+    }
+    // wx.getUserProfile({
+    //     desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    //     success: (res) => {
+    //         encrypt(res).then(data => {
+    //             console.log('res',data)
+    //         })
+    //     }
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
@@ -39,7 +41,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // Auth.checkLoginStatus().then(status => {
+    //     if(status){
+    //         // 登录获取用户信息
+    //         // const {avatarUrl, userMobile, userName, id} = await getUserInfo()
+    //     }else{
+    //         // 登录
+    //         Auth.newAuthorize().then(res => {
+    //             console.log(res,'res1')
+    //         })
+    //     }
+    // })
   },
 
   /**

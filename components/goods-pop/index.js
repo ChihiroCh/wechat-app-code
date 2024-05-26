@@ -1,5 +1,7 @@
-// components/goods-pop/index.js
-import {getGoodDetail} from '../../apis/product'
+
+// const TOOLS = require('../../utils/tools.js')
+const {getGoodDetail,goodSelectSku} = require('../../apis/product')
+
 Component({
 
   /**
@@ -106,8 +108,46 @@ Component({
       })
     }
   },
-  addCarSku() {
-      let check = this.data.skuCurGoods.properties.map(child => child.childsCurGoods.filter(it => it.active))
+  async addCarSku() {
+    //   let check = this.data.skuCurGoods.properties.map(child => child.childsCurGoods.filter(it => it.active))
+    if(!this.checkSkuSelect(this.data.skuCurGoods)){
+        wx.showToast({
+            title: '请选择规格/配件',
+            icon: 'none'
+        })
+        return
+    }
+    const res = await goodSelectSku({ goodInfo: this.data.skuCurGoods, pic: this.data.skuGoodsPic })
+      wx.showToast({
+        title: '加入成功',
+        icon: 'success'
+      })
+      wx.showTabBar()
+    //   TOOLS.showTabBarBadge() // 获取购物车数据，显示TabBarBadge
+      this.setData({
+        skuCurGoodsShow: false
+      })
+  },
+  checkSkuSelect(product) {
+    console.log(product, 'product')
+    if (product.properties && product.properties.length) {
+      // 记录每次的结果
+      const checkResult = []
+      product.properties.forEach((item, index) => {
+        checkResult.push(false)
+        item.childsCurGoods.forEach(child => {
+          if (child.active) {
+            checkResult[index] = true
+          }
+        })
+      })
+      if (checkResult.length === 0) {
+        return false
+      } else {
+        return !checkResult.filter(el => !el).length
+      }
+    }
+    return flag
   }
 }
 })

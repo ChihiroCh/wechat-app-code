@@ -7,11 +7,23 @@
   </scroll-view>
   <scroll-view class="goods-container" scroll-y="true">
     <van-empty description="没有商品" wx:if="{{!currentGoodsList.length}}" />
+    <wxs module="goodsDetailPage">
+    module.exports = {
+      url : function(item) {
+        if (item.supplyType == 'vop_jd') {
+          return '/pages/goods-details/vop?id=' + item.yyId + '&goodsId=' + item.id
+        } else {
+          return '/pages/goods-details/index?id=' + item.id
+        }
+      }
+    }
+    </wxs>
     <van-card
       wx:for="{{currentGoodsList}}" wx:key="id"
       price="{{item.minPrice}}"
       title="{{item.name}}"
       thumb="{{item.pic}}"
+      thumb-link="{{ goodsDetailPage.url(item) }}"
     >
       <view class="goods-btn" slot="footer">
         <van-icon wx:if="{{ item.propertyIds || item.hasAddition }}" name="add" color="#e64340" size="48rpx" data-id="{{item.id}}" bind:click="addShopCar" />

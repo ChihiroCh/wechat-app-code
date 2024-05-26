@@ -11,3 +11,7 @@ export function encrypt(data) {
 export function loginApi (data) {
     return request.post('/login', data)
 }
+
+export function getPhone(code) {
+    return request.get(`/getPhone?code=${code}`)
+  }

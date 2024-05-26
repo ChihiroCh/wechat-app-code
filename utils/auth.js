@@ -49,6 +49,25 @@ async function wxCode() {
     })
 }
 
+async function authorize() {
+    const code = await wxCode()
+      const res = await loginApi({ code })
+      wx.setStorageSync('token', res.token)
+      wx.setStorageSync('uid', res.uid)
+      console.log(res, 'res')
+}
+
+async function newAuthorize() {
+    return new Promise(async (resolve, reject) => {
+      const code = await wxCode()
+      const res = await loginApi({ code })
+      console.log(res, 'res')
+      wx.setStorageSync('token', res.token)
+      wx.setStorageSync('uid', res.uid)
+      resolve()
+    })
+  }
+
 async function checkAuth(scope) {
    return new Promise((reslove,reject) => {
     wx.getSetting({
@@ -101,6 +120,9 @@ async function Login() {
 module.exports = {
     checkSession,
     checkLoginStatus,
+    newAuthorize,
+    authorize,
     wxCode,
-    checkAuth
+    checkAuth,
+    Login
 }

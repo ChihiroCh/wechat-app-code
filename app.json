@@ -1,52 +1,77 @@
 {
-    "pages": [
-      "pages/index/index",
-      "pages/my/index",
-      "pages/logs/logs",
-      "pages/category/category"
-    ],
-    "window": {
-      "navigationBarTextStyle": "black",
-      "navigationBarTitleText": "Weixin",
-      "navigationBarBackgroundColor": "#ffffff"
-    },
-    "tabBar": {
-      "color": "#6e6d6b",
-      "selectedColor": "#e64340",
-      "borderStyle": "white",
-      "backgroundColor": "#fff",
-        "list": [{
-            "pagePath": "pages/index/index",
-            "text": "首页",
-            "iconPath": "/images/nav/home-off.png",
-            "selectedIconPath": "/images/nav/home-on.png"
-        },{
-          "pagePath": "pages/category/category",
-          "text": "分类",
-          "iconPath": "/images/nav/fl-off.png",
-          "selectedIconPath": "/images/nav/fl-on.png"
-      },{
-          "pagePath": "pages/my/index",
-          "text": "我的",
-          "iconPath": "/images/nav/my-off.png",
-          "selectedIconPath": "/images/nav/my-on.png"
-      }]
-    },
-    "usingComponents": {
-      "goods-pop": "/components/goods-pop/index",
-      "van-button": "@vant/weapp/button/index",
-      "van-notice-bar": "@vant/weapp/notice-bar/index",
-      "van-sticky": "@vant/weapp/sticky/index",
-      "van-sidebar": "@vant/weapp/sidebar/index",
-      "van-sidebar-item": "@vant/weapp/sidebar-item/index",
-      "van-icon": "@vant/weapp/icon/index",
-      "van-card": "@vant/weapp/card/index",
-      "van-empty": "@vant/weapp/empty/index",
-      "van-popup": "@vant/weapp/popup/index",
-      "van-stepper": "@vant/weapp/stepper/index"
-    },
-    "componentFramework": "glass-easel",
-    "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents"
-  }
-  
+  "pages": [
+    "pages/index/index",
+    "pages/my/index",
+    "pages/logs/logs",
+    "pages/category/category",
+    "pages/shop-cart/index",
+    "pages/template-cart/index",
+    "pages/order-list/index",
+    "pages/goods-details/index",
+    "pages/to-pay-order/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#e64340",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/nav/home-off.png",
+        "selectedIconPath": "/images/nav/home-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "/images/nav/fl-off.png",
+        "selectedIconPath": "/images/nav/fl-on.png"
+      },
+      {
+        "pagePath": "pages/shop-cart/index",
+        "iconPath": "images/nav/cart-off.png",
+        "selectedIconPath": "images/nav/cart-on.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "/images/nav/my-off.png",
+        "selectedIconPath": "/images/nav/my-on.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "goods-pop": "/components/goods-pop/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-tab": "@vant/weapp/tab/index",
+     "van-tabs": "@vant/weapp/tabs/index",
+     "van-goods-action": "@vant/weapp/goods-action/index",
+    "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+    "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+    "poster": "wxa-plugin-canvas/poster",
+    "mp-html": "mp-html"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

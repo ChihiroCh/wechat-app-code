@@ -1,2 +1,3 @@
 <!--pages/my/index.wxml-->
-<van-button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary" block round bind:click="updateUserInfo">微信一键登录</van-button>
+<!-- <van-button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary" block round bind:click="updateUserInfo">微信一键登录</van-button> -->
+<van-button  type="primary" block round bind:click="updateUserInfo">微信一键登录</van-button>

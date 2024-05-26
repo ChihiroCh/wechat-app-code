@@ -1,0 +1,6 @@
+<!--pages/shop-cart/index.wxml-->
+<import src="../template-cart/index"/>
+<view class="container">
+  <template is="{{shippingCarInfo.items.length > 0 ? 'cart-goods-list' : 'no-goods'}}"
+  data="{{...shippingCarInfo, shopCarType}}"></template>
+</view>
